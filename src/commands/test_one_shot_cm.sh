@@ -1,0 +1,9 @@
+#!/bin/sh
+# FETA one shot
+python -m torch.distributed.launch --nproc_per_node $GPU_NUM -m training.main --resume $MODELS_ROOT/cm_one/0.pt --exp_mode one --fold 0 --distributed --data_mode cm --name feta_one_shot_test_0 --batch-size 32 --lr 5e-05 --epochs 20 --model RN50 --logs $LOGS_FOLDER --val-data $DATA_ROOT/car_manuals_data/car_manuals_data.pkl --openai-pretrained --save-frequency 50
+python -m torch.distributed.launch --nproc_per_node $GPU_NUM -m training.main --resume $MODELS_ROOT/cm_one/1.pt --exp_mode one --fold 1 --distributed --data_mode cm --name feta_one_shot_test_1 --batch-size 32 --lr 5e-05 --epochs 20 --model RN50 --logs $LOGS_FOLDER --val-data $DATA_ROOT/car_manuals_data/car_manuals_data.pkl --openai-pretrained --save-frequency 50
+python -m torch.distributed.launch --nproc_per_node $GPU_NUM -m training.main --resume $MODELS_ROOT/cm_one/2.pt --exp_mode one --fold 2 --distributed --data_mode cm --name feta_one_shot_test_2 --batch-size 32 --lr 5e-05 --epochs 20 --model RN50 --logs $LOGS_FOLDER --val-data $DATA_ROOT/car_manuals_data/car_manuals_data.pkl --openai-pretrained --save-frequency 50
+python -m torch.distributed.launch --nproc_per_node $GPU_NUM -m training.main --resume $MODELS_ROOT/cm_one/3.pt --exp_mode one --fold 3 --distributed --data_mode cm --name feta_one_shot_test_3 --batch-size 32 --lr 5e-05 --epochs 20 --model RN50 --logs $LOGS_FOLDER --val-data $DATA_ROOT/car_manuals_data/car_manuals_data.pkl --openai-pretrained --save-frequency 50
+python -m torch.distributed.launch --nproc_per_node $GPU_NUM -m training.main --resume $MODELS_ROOT/cm_one/4.pt --exp_mode one --fold 4 --distributed --data_mode cm --name feta_one_shot_test_4 --batch-size 32 --lr 5e-05 --epochs 20 --model RN50 --logs $LOGS_FOLDER --val-data $DATA_ROOT/car_manuals_data/car_manuals_data.pkl --openai-pretrained --save-frequency 50
+# Average results
+python training/utils.py --logs_path $LOGS_FOLDER --run_name feta_one_shot_test --exp_mode one
