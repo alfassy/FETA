@@ -3,7 +3,7 @@ To download this data you will need 7 free GB
 ```bash
 export DATA_ROOT=../FETA_data
 cd $DATA_ROOT
-wget https://ai-vision-public-datasets.s3.eu.cloud-object-storage.appdomain.cloud/FETA/feta_data.tar.gz
+wget https://huggingface.co/datasets/alfassy/FETA_IKEA_CAR_MANUALS/resolve/main/feta_data.tar.gz
 tar -xvf feta_data.tar.gz
 # After untar you can safely delete the tar.
 rm feta_data.tar.gz
